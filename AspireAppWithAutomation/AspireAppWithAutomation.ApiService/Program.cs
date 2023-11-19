@@ -1,6 +1,6 @@
 using AspireAppWithAutomation.ApiService.Core.Extensions;
-using AspireAppWithAutomation.ApiService.Features.Automation.Endpoints;
-using AspireAppWithAutomation.ApiService.Features.Weather.Endpoints;
+using AspireAppWithAutomation.ApiService.Features.Automation;
+using AspireAppWithAutomation.ApiService.Features.Weather;
 
 var builder = WebApplication.CreateBuilder(args);
 

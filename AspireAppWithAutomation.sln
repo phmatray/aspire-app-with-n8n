@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithAutomation.Api
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithAutomation.Web", "AspireAppWithAutomation\AspireAppWithAutomation.Web\AspireAppWithAutomation.Web.csproj", "{73B094EF-A82C-4C58-ABD9-E0564B10C79B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithAutomation.ApiService.Client", "AspireAppWithAutomation.ApiService.Client\AspireAppWithAutomation.ApiService.Client.csproj", "{2F6992FE-689D-44B7-998A-A277E829E69F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithAutomation.ApiService.Client", "AspireAppWithAutomation\AspireAppWithAutomation.ApiService.Client\AspireAppWithAutomation.ApiService.Client.csproj", "{2F6992FE-689D-44B7-998A-A277E829E69F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

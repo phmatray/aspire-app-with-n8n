@@ -1,4 +1,3 @@
-using AspireAppWithAutomation.ApiService.Client.Core.Abstractions;
 using MediatR;
 
 namespace AspireAppWithAutomation.ApiService.Core.Extensions;
@@ -10,7 +9,7 @@ public static class MinimalApiMediatrExtensions
 {
     public static IEndpointRouteBuilder MediateGet<TRequest>(
         this IEndpointRouteBuilder app, string template)
-        where TRequest : IHttpRequest
+        where TRequest : IBaseRequest
     {
         app.MapGet(template, (IMediator mediator, [AsParameters] TRequest request)
             => mediator.Send(request));
@@ -20,7 +19,7 @@ public static class MinimalApiMediatrExtensions
     
     public static IEndpointRouteBuilder MediatePost<TRequest>(
         this IEndpointRouteBuilder app, string template)
-        where TRequest : IHttpRequest
+        where TRequest : IBaseRequest
     {
         app.MapPost(template, (IMediator mediator, [AsParameters] TRequest request)
             => mediator.Send(request));

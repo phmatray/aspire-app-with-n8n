@@ -1,12 +1,12 @@
 using AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.ExecuteAutomation;
 using MediatR;
 
-namespace AspireAppWithAutomation.ApiService.Features.Automation.Endpoints.ExecuteAutomation;
+namespace AspireAppWithAutomation.ApiService.Features.Automation.Endpoints;
 
 public sealed class ExecuteAutomationHandler(IConfiguration configuration)
-    : IRequestHandler<ExecuteAutomationRequest, IResult>
+    : IRequestHandler<ExecuteAutomationRequest, ExecuteAutomationResponse>
 {
-    public async Task<IResult> Handle(ExecuteAutomationRequest request, CancellationToken cancellationToken)
+    public async Task<ExecuteAutomationResponse> Handle(ExecuteAutomationRequest request, CancellationToken cancellationToken)
     {
         HttpClient client = new();
         var url = configuration["N8N_URL"]!;
@@ -21,8 +21,11 @@ public sealed class ExecuteAutomationHandler(IConfiguration configuration)
         var requestUri = webhookUrl + ToQueryString(query);
         var response = await client.GetAsync(requestUri);
         var message = await response.Content.ReadAsStringAsync();
-        var result = new ExecuteAutomationResponse(request.FirstName, request.LastName, message);
-        return Results.Ok(result);
+        
+        return new ExecuteAutomationResponse(
+            request.FirstName,
+            request.LastName,
+            message);
     }
     
     private static string ToQueryString(Dictionary<string, string> query)

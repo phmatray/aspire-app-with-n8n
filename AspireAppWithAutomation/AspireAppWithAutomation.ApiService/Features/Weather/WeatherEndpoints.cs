@@ -1,8 +1,7 @@
 using AspireAppWithAutomation.ApiService.Client.Features.Weather.Endpoints.GetWeatherForecast;
 using AspireAppWithAutomation.ApiService.Core.Extensions;
-using AspireAppWithAutomation.ApiService.Features.Weather.Endpoints.GetWeatherForecast;
 
-namespace AspireAppWithAutomation.ApiService.Features.Weather.Endpoints;
+namespace AspireAppWithAutomation.ApiService.Features.Weather;
 
 /// <summary>
 /// Weather endpoints registration.
