@@ -11,4 +11,13 @@
         <ProjectReference Include="..\AspireAppWithAutomation.ServiceDefaults\AspireAppWithAutomation.ServiceDefaults.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.2.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Core\" />
+    </ItemGroup>
+
 </Project>
