@@ -1,3 +1,4 @@
+using AspireAppWithAutomation.ApiService.Client.Features.Weather.Endpoints.GetWeatherForecast;
 using MediatR;
 
 namespace AspireAppWithAutomation.ApiService.Features.Weather.Endpoints.GetWeatherForecast;

@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\AspireAppWithAutomation.ApiService.Client\AspireAppWithAutomation.ApiService.Client.csproj" />
         <ProjectReference Include="..\AspireAppWithAutomation.ServiceDefaults\AspireAppWithAutomation.ServiceDefaults.csproj"/>
     </ItemGroup>
 

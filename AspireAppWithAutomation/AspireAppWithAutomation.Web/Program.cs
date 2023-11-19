@@ -1,3 +1,4 @@
+using AspireAppWithAutomation.ApiService.Client;
 using AspireAppWithAutomation.Web;
 using AspireAppWithAutomation.Web.Components;
 
@@ -12,7 +13,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddOutputCache();
 
-builder.Services.AddHttpClient<WeatherApiClient>(client => client.BaseAddress = new("http://apiservice"));
+builder.Services.AddApiServiceHttpClient("http://apiservice");
 
 var app = builder.Build();
 

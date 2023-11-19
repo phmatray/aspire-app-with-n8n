@@ -1,3 +1,5 @@
+using AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.ExecuteAutomation;
+using AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.GetStartupInfo;
 using AspireAppWithAutomation.ApiService.Core.Extensions;
 using AspireAppWithAutomation.ApiService.Features.Automation.Endpoints.ExecuteAutomation;
 using AspireAppWithAutomation.ApiService.Features.Automation.Endpoints.GetStartupInfo;

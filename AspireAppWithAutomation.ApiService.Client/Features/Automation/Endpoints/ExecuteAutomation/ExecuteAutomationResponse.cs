@@ -1,4 +1,4 @@
-namespace AspireAppWithAutomation.ApiService.Features.Automation.Endpoints.ExecuteAutomation;
+namespace AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.ExecuteAutomation;
 
 public sealed record ExecuteAutomationResponse(
     string FirstName,

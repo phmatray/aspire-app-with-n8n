@@ -1,3 +1,4 @@
+using AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.ExecuteAutomation;
 using MediatR;
 
 namespace AspireAppWithAutomation.ApiService.Features.Automation.Endpoints.ExecuteAutomation;

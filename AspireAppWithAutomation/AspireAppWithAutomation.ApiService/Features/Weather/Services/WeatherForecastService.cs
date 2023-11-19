@@ -1,3 +1,5 @@
+using AspireAppWithAutomation.ApiService.Client.Features.Weather.Models;
+
 namespace AspireAppWithAutomation.ApiService.Features.Weather;
 
 public sealed class WeatherForecastService

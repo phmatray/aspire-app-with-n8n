@@ -1,4 +1,4 @@
-namespace AspireAppWithAutomation.ApiService.Features.Weather;
+namespace AspireAppWithAutomation.ApiService.Client.Features.Weather.Models;
 
 public static class WeatherSummaries
 {

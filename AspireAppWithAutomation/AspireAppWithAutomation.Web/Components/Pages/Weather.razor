@@ -1,8 +1,10 @@
 ﻿@page "/weather"
-@attribute [StreamRendering(true)]
+@using AspireAppWithAutomation.ApiService.Client.Features.Weather.Models
+@using AspireAppWithAutomation.ApiService.Client
+@attribute [StreamRendering]
 @attribute [OutputCache(Duration = 5)]
 
-@inject WeatherApiClient WeatherApi
+@inject ApiServiceHttpClient ApiService
 
 <PageTitle>Weather</PageTitle>
 
@@ -10,7 +12,7 @@
 
 <p>This component demonstrates showing data loaded from a backend API service.</p>
 
-@if (forecasts == null)
+@if (_forecasts == null)
 {
   <p>
     <em>Loading...</em>
@@ -28,7 +30,7 @@ else
     </tr>
     </thead>
     <tbody>
-    @foreach (var forecast in forecasts)
+    @foreach (var forecast in _forecasts)
     {
       <tr>
         <td>@forecast.Date.ToShortDateString()</td>
@@ -42,11 +44,13 @@ else
 }
 
 @code {
-  private WeatherForecast[]? forecasts;
+  
+  private WeatherForecast[]? _forecasts;
 
   protected override async Task OnInitializedAsync()
   {
-    forecasts = await WeatherApi.GetWeatherAsync();
+    var response = await ApiService.GetWeatherAsync();
+    _forecasts = response?.Forecasts ?? Array.Empty<WeatherForecast>();
   }
 
 }

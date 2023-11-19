@@ -1,4 +1,4 @@
-using AspireAppWithAutomation.ApiService.Core.Abstractions;
+using AspireAppWithAutomation.ApiService.Client.Core.Abstractions;
 using MediatR;
 
 namespace AspireAppWithAutomation.ApiService.Core.Extensions;
