@@ -1,8 +1,17 @@
+using AspireAppWithAutomation.AppHost.Extensions;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var apiservice = builder.AddProject<Projects.AspireAppWithAutomation_ApiService>("apiservice");
+// add n8n container
+builder.AddN8NContainer();
 
-builder.AddProject<Projects.AspireAppWithAutomation_Web>("webfrontend")
+// add api service project (backend)
+var apiservice = builder
+    .AddProject<Projects.AspireAppWithAutomation_ApiService>("apiservice");
+
+// add web frontend project (frontend with a reference to the backend)
+builder
+    .AddProject<Projects.AspireAppWithAutomation_Web>("webfrontend")
     .WithReference(apiservice);
 
 builder.Build().Run();
