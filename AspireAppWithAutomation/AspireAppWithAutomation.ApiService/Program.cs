@@ -1,4 +1,3 @@
-using AspireAppWithAutomation.ApiService.Core.Extensions;
 using AspireAppWithAutomation.ApiService.Features.Automation;
 using AspireAppWithAutomation.ApiService.Features.Weather;
 

@@ -1,5 +1,3 @@
-using MediatR;
-
 namespace AspireAppWithAutomation.ApiService.Core.Extensions;
 
 // based on Write cleaner APIs in .NET 7 with MediatR by Nick Chapsas

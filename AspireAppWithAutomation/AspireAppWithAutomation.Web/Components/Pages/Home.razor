@@ -1,7 +1,91 @@
 ﻿@page "/"
+@page "/automation"
+@using AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.ExecuteAutomation
+@using AspireAppWithAutomation.ApiService.Client
+@rendermode InteractiveServer
+@inject ApiServiceHttpClient ApiService
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Automation</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Automation</h1>
 
-Welcome to your new app.
+<p>This page demonstrates the use of the <code>ApiServiceHttpClient</code> class to call a n8n workflow.</p>
+
+<ol>
+  <li>Enter a first and last name</li>
+  <li>Click the submit button</li>
+  <li>The form data is sent to the API, which then calls the n8n workflow</li>
+  <li>The workflow concatenates the first and last name and returns a message containing the URL of a Google search query for the term</li>
+  <li>The n8n workflow will then send a message back to the API, which will be displayed in the table below</li>
+</ol>
+
+<EditForm FormName="executeAutomationForm" Model="@_executeAutomationRequest" OnValidSubmit="ExecuteAutomationAsync">
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <InputText id="firstName" @bind-Value="_executeAutomationRequest.FirstName" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <InputText id="lastName" @bind-Value="_executeAutomationRequest.LastName" class="form-control"/>
+  </div>
+  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</EditForm>
+
+@if (_n8nUrl == null)
+{
+  <p>
+    <em>Loading...</em>
+  </p>
+}
+else
+{
+  <table class="table mt-2">
+    <thead>
+    <tr>
+      <th>Item</th>
+      <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>n8n URL</td>
+      <td>
+        <a href="@_n8nUrl" target="_blank">Open in new tab</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Workflow result</td>
+      <td>
+        @_searchMessage
+      </td>
+    </tr>
+    </tbody>
+  </table>
+}
+
+@code {
+
+  private string? _n8nUrl;
+  private string? _searchMessage;
+  private readonly ExecuteAutomationRequest _executeAutomationRequest = new("Sherlock", "Holmes");
+
+  protected override async Task OnInitializedAsync()
+  {
+    await GetStartupInfo();
+    await base.OnInitializedAsync();
+  }
+
+  private async Task ExecuteAutomationAsync()
+  {
+    var request = new ExecuteAutomationRequest(_executeAutomationRequest.FirstName, _executeAutomationRequest.LastName);
+    var response = await ApiService.ExecuteAutomationAsync(request);
+    _searchMessage = response?.Message ?? throw new Exception("No response from API");
+  }
+
+  private async Task GetStartupInfo()
+  {
+    var response = await ApiService.GetStartupInfoAsync();
+    _n8nUrl = response?.N8N_URL ?? throw new Exception("No response from API");
+  }
+
+}

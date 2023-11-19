@@ -1,5 +1,3 @@
-using MediatR;
-
 namespace AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.ExecuteAutomation;
 
 /// <summary>

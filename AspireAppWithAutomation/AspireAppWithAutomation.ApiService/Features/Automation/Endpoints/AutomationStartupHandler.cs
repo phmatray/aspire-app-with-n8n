@@ -1,5 +1,4 @@
 using AspireAppWithAutomation.ApiService.Client.Features.Automation.Endpoints.GetStartupInfo;
-using MediatR;
 
 namespace AspireAppWithAutomation.ApiService.Features.Automation.Endpoints;
 
