@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This repository has moved.** The code now lives in **[phmatray/aspire-samples](https://github.com/phmatray/aspire-samples)** under [`samples/n8n-automation`](https://github.com/phmatray/aspire-samples/tree/main/samples/n8n-automation) — full git history preserved. This repository is archived (read-only).
+
 ![aspire-app-with-n8n banner](.github/banner.png)
 
 # .NET 8 Aspire App with n8n Automation 🚀
